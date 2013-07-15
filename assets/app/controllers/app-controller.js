@@ -81,12 +81,13 @@
 
 					// Make sure this change is relevant to this controller.
 					if ( ! renderContext.isChangeRelevant() ) {
-
+            console.log('app-controller: requestContextChanged ' + 'change not relevant');
 						return;
 
 					}
+          console.log('app-controller: requestContextChanged ' + 'update subview: ' + renderContext.getNextSection());
 
-					// Update the view that is being rendered.
+          // Update the view that is being rendered.
 					$scope.subview = renderContext.getNextSection();
 
 				}
@@ -100,10 +101,12 @@
 
 					// If this is a redirect directive, then there's no taction to be taken.
 					if ( isRouteRedirect( $route ) ) {
-						
+            console.log('app-controller: $routeChangeSuccess ' + 'change not relevant');
+
 						return;
 
 					}
+          console.log('app-controller: $routeChangeSuccess ' + JSON.stringify($routeParams));
 
 					// Update the current request action change.
 					requestContext.setContext( $route.current.action, $routeParams );

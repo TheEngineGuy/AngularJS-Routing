@@ -46,10 +46,11 @@
 
 					// Make sure this change is relevant to this controller.
 					if ( ! renderContext.isChangeRelevant() ) {
-
+            console.log("standard-controller:  requestContextChanged  change not relevant"  );
 						return;
 
 					}
+          console.log("standard-controller:  requestContextChanged  change relevant subview:" +  renderContext.getNextSection());
 
 					// Update the view that is being rendered.
 					$scope.subview = renderContext.getNextSection();
